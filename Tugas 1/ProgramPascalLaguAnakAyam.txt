@@ -1,0 +1,94 @@
+//ini adalah program lagu ayam yang anaknya mati tinggal satu :v
+//perintah-perintah dasarnya dikutip dari http://www.duniailkom.com/tutorial-belajar-bahasa-pemrograman-pascal-bagi-pemula/
+program AnakAyam;
+uses crt;
+var
+a,b,c,d,e,f,g,h,i,j:integer;
+begin
+  a := 10;
+  b := 1;
+  c := a-b;
+  d := c-b;
+  e := d-b;
+  f := e-b;
+  g := f-b;
+  h := g-b;
+  i := h-b;
+  j := i-b;
+  writeln('--Lagu Anak Ayam--');
+  writeln('Programmer : Yosep Bahtiar');
+  readln;
+
+  writeln('Tek-Kotek-Kotek-Kotek');
+  write('Anak Ayam Turun ber-Kotek');
+  readln;
+  write('Anak Ayam Turunlah ');writeln(a);
+  write('Mati ',b,' Tinggal-lah ');writeln(c);
+  readln;
+
+  writeln('Tek-Kotek-Kotek-Kotek');
+  write('Anak Ayam Turun ber-Kotek');
+  readln;
+  write('Anak Ayam Turunlah ');writeln(c);
+  write('Mati ',b,' Tinggal-lah ');writeln(d);
+  readln;
+
+  writeln('Tek-Kotek-Kotek-Kotek');
+  write('Anak Ayam Turun ber-Kotek');
+  readln;
+  write('Anak Ayam Turunlah ');writeln(d);
+  write('Mati ',b,' Tinggal-lah ');writeln(e);
+  readln;
+
+  writeln('Tek-Kotek-Kotek-Kotek');
+  write('Anak Ayam Turun ber-Kotek');
+  readln;
+  write('Anak Ayam Turunlah ');writeln(e);
+  write('Mati ',b,' Tinggal-lah ');writeln(f);
+  readln;
+
+  writeln('Tek-Kotek-Kotek-Kotek');
+  write('Anak Ayam Turun ber-Kotek');
+  readln;
+  write('Anak Ayam Turunlah ');writeln(f);
+  write('Mati ',b,' Tinggal-lah ');writeln(g);
+  readln;
+
+  writeln('Tek-Kotek-Kotek-Kotek');
+  write('Anak Ayam Turun ber-Kotek');
+  readln;
+  write('Anak Ayam Turunlah ');writeln(g);
+  write('Mati ',b,' Tinggal-lah ');writeln(h);
+  readln;
+
+  writeln('Tek-Kotek-Kotek-Kotek');
+  write('Anak Ayam Turun ber-Kotek');
+  readln;
+  write('Anak Ayam Turunlah ');writeln(h);
+  write('Mati ',b,' Tinggal-lah ');writeln(i);
+  readln;
+
+  writeln('Tek-Kotek-Kotek-Kotek');
+  write('Anak Ayam Turun ber-Kotek');
+  readln;
+  write('Anak Ayam Turunlah ');writeln(i);
+  write('Mati ',b,' Tinggal-lah ');writeln(j);
+  readln;
+
+  writeln('Tek-Kotek-Kotek-Kotek');
+  write('Anak Ayam Turun ber-Kotek');
+  readln;
+  write('Anak Ayam Turunlah ');writeln(j);
+  write('Mati ',b,' Tinggal-lah ');writeln(b);
+  readln;
+
+  writeln('Tek-Kotek-Kotek-Kotek');
+  write('Anak Ayam Turun ber-Kotek');
+  readln;
+  write('Anak Ayam Turunlah ');writeln(b);
+  write('Mati ',b,' Tinggal-lah ');writeln('Induknya');
+  readln;
+
+  writeln('Lagu Anak-Anak yang paling Nyesek :v');
+  readln;
+end.
