@@ -1,0 +1,15 @@
+program LuasSegitiga;
+uses crt;
+var
+luas,setengah,alas,tinggi:extended;
+
+Begin
+writeln('Program untuk mencari Luas Persegi Panjang');
+writeln;
+setengah := 1/2;
+write('Masukan Alas Segitiga   = '); readln(alas);
+write('Masukan Tinggi Segitiga = '); readln(tinggi);
+luas := setengah*alas*tinggi;
+writeln('Luas Segitiga = 1/2 X ',alas:2:2,' X ',tinggi:2:2,' = ',luas:2:2);
+readkey;
+end.

@@ -1,0 +1,50 @@
+uses wincrt;
+var
+i,b,c,d: real;
+begin
+i:=3.0;
+b:=2.0;   
+c:=0.0;
+i:=i+i;
+b:=b+i;
+c:=c*i;
+write('Nilai i=',i,' b=',b,' c=',c);
+end.
+
+Tampilan Akhir Program di atas:
+
+Jika program di atas diCompile, maka akan muncul pesan catatan di bawah jendela Dev-Pascal
+bahwa "Local variable D not Used" yang menandakan bahwa variabel 'd' tidak digunakan, lalu
+saya menghapusnya. Setelah di Execute, jendela program tersebut langsung menutup karena
+tidak ada perintah untuk menahan programnya yaitu 'readkey', lalu saya menambahkan
+'readkey;' diatas 'end.' dan setelah di Execute program tersebut bisa muncul:
+|Nilai i= 6.000000000000000E+000 b= 8.000000000000000E+000 c= 0.000000000000000E+000|
+
+Setelah muncul, saya melihat kalau hasil penjumlahan tersebut muncul terlalu banyak 0 karena
+tipe data yang digunakan 'real' yang mempunyai interval bilangan real antara 2.9*10^-39 sampai
+dengan 1.7*10^38, lalu saya menggantinya dengan tipe data 'single' karena tipe data 'single'
+mempunyai interval bilangan real antara 1.5*10^-45 sampai dengan 3.4*10^38, dan hasilnya:
+|Nilai i= 6.000000000E+00 b= 8.000000000E+00 c= 0.000000000E+00|
+
+Dari hasil Execute program diatas kita bisa menarik kesimpulan bahwa tipe data dari sebuah
+program sangat berpengaruh terhadap hasil yang akan didapat, dan berikut adalah script tadi
+yang telah saya ubah sedikit dengan menambahkan ':2:2' dibelakang hasil dari variabel yang
+nantinya tampil untuk menyederhanakan hasil variabel tersebut:
+
+uses wincrt;
+var
+i,b,c: single;
+begin
+i:=3.0;
+b:=2.0;   
+c:=0.0;
+i:=i+i;
+b:=b+i;
+c:=c*i;
+write('Nilai i=',i:2:2,' b=',b:2:2,' c=',c:2:2);
+readkey;
+end.
+
+
+Dan inilah hasilnya:
+|Nilai i=6.00 b=8.00 c=0.00|

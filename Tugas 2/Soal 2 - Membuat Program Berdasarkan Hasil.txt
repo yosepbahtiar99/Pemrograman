@@ -1,0 +1,27 @@
+program Tugas2_Soal2;
+uses crt;
+var
+nilai1,nilai2:integer;
+hasiltambah, hasilkurang, hasilkali, hasilmod, hasildiv:longint;
+
+begin
+write('Masukan Nilai i : '); readln(nilai1);
+write('Masukan Nilai j : '); readln(nilai2);
+
+hasiltambah := nilai1 + nilai2;
+hasilkurang := nilai1 - nilai2;
+hasilkali := nilai1 * nilai2;
+hasildiv := nilai1 div nilai2;
+hasilmod := nilai1 mod nilai2;
+
+writeln('-----------------------------');
+writeln('|  operasi  | hasil operasi |');
+writeln('-----------------------------');
+writeln('|  ',nilai1,' + ',nilai2,'    |       ',hasiltambah,'       |');
+writeln('|  ',nilai1,' - ',nilai2,'    |      ',hasilkurang,'       |');
+writeln('|  ',nilai1,' X ',nilai2,'    |       ',hasilkali,'       |');
+writeln('|  ',nilai1,' div ',nilai2,'  |       ',hasildiv,'       |');
+writeln('|  ',nilai1,' mod ',nilai2,'  |       ',hasilmod,'       |');
+writeln('-----------------------------');
+readkey;
+end.
