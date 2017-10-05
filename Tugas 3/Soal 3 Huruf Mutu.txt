@@ -1,0 +1,32 @@
+uses crt;
+var 
+nilai,quiz,absen,uts,uas,tugas:real;
+hm:string;
+
+begin
+writeln('Program Huruf Mutu Mata Kuliah Algoritma & Pemrograman I');
+writeln;
+write('Masukan Nilai (0-100) Quiz  = '); readln(quiz);
+write('Masukan Nilai (0-100) Absen = '); readln(absen);
+write('Masukan Nilai (0-100) UTS   = '); readln(uts);
+write('Masukan Nilai (0-100) UAS   = '); readln(uas);
+write('Masukan Nilai (0-100) Tugas = '); readln(tugas);
+writeln;
+nilai:=((absen)+(tugas)+(quiz)+(uts)+(uas))/5;
+if (nilai>85) then
+   hm := 'Jenius!, Huruf Mutu Anda A'
+   else
+   if (nilai>70) then
+   hm := 'Selamat!, Huruf Mutu Anda B'
+   else
+   if (nilai>55) then
+   hm := 'Huruf Mutu Anda C'
+   else
+   if (nilai>40) then
+   hm := 'Maaf, Huruf Mutu Anda D'
+   else
+   if (nilai>=0) then
+   hm := 'Maaf, Huruf Mutu Anda E';
+writeln(hm);
+readkey;
+end.

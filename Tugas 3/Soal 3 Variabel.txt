@@ -1,0 +1,27 @@
+program Program_Tiga_Variabel;
+uses crt;
+var
+a,b,c:integer;
+hasil:integer;
+
+begin
+writeln('Program Pencari Angka Terbesar dari 3 Angka : ');
+writeln;
+write('Masukan Angka Pertama = '); readln(a);
+write('Masukan Angka Kedua   = '); readln(b);
+write('Masukan Angka Ketiga  = '); readln(c);
+
+if (a>b) then
+hasil := a
+else
+    hasil := b;
+
+if (hasil > c) then
+hasil := hasil
+else
+    hasil := c;
+
+writeln;
+writeln('Angka Terbesar adalah = ',hasil);
+readkey;
+end.
