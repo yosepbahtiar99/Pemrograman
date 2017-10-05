@@ -1,0 +1,42 @@
+program Gaji_Karyawan;
+uses crt;
+var
+nama : string;
+gol  : char;
+status : string;
+gajipokok,tunjangan,potiuran,gajibersih,prosentase : real;
+
+begin
+Write('Nama Karyawan        : ');readln(nama);
+Write('Gol (A\B)            : ');readln(gol);
+Write('Status (Nikah\Belum) : ');readln(status);
+Case Gol of
+'A' : gajipokok:=200000;
+'B' : gajipokok:=350000;
+end;
+
+if (gajipokok <= 300000) then
+prosentase := 5/100
+else
+    prosentase := 10/100;
+
+if(status='Nikah') and (gol='A')then
+tunjangan := 50000
+else
+    tunjangan := 25000;
+
+if(status='Nikah') and (gol='B')then
+tunjangan := 75000
+else
+    tunjangan := 60000;
+
+potiuran := (gajipokok+tunjangan)*prosentase;
+gajibersih := gajipokok+tunjangan-potiuran;
+
+writeln('Gaji Pokok           : Rp. ',gajipokok:0:0);
+writeln('Tunjangan            : Rp. ',tunjangan:0:0);
+writeln('Potongan Iuran       : Rp. ',potiuran:0:0);
+writeln('Gaji Bersih          : Rp. ',gajibersih:0:0);
+readkey;
+(* Alhamdulillah Beres :D *)
+end.
