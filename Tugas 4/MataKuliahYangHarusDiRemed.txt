@@ -1,0 +1,37 @@
+program MataKuliahRemedial;
+uses crt;
+var
+alpro,sbo,rti,bi,psila:integer;
+remed1,remed2,remed3,remed4,remed5:string;
+
+begin
+writeln('Program Checking Mata Kuliah');
+writeln;
+write('Masukan Nilai (0-100) Alpro            = '); readln(alpro);
+write('Masukan Nilai (0-100) SBO              = '); readln(sbo);
+write('Masukan Nilai (0-100) RTI              = '); readln(rti);
+write('Masukan Nilai (0-100) Bahasa Indonesia = '); readln(bi);
+write('Masukan Nilai (0-100) Pancasila        = '); readln(psila);
+writeln;
+
+if (alpro>50) and (sbo>50) and (rti>50) and (bi>50) and (psila>50) then
+writeln('Anda Tidak Mendapat Remedial')
+else
+write('Anda Mendapat Remedial : ');
+if (alpro<=50) then
+remed1 := 'Alpro ';
+
+if (sbo<=50) then
+remed2 := '- SBO ';
+
+if (rti<=50) then
+remed3 := '- RTI ';
+
+if (bi<=50) then
+remed4 := '- Bahasa Indonesia ';
+
+if (psila<=50) then
+remed5 := '- Pancasila';
+write(remed1,remed2,remed3,remed4,remed5);
+readkey;
+end.

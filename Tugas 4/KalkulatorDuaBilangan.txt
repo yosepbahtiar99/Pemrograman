@@ -1,0 +1,18 @@
+program Kalkulator;
+uses crt;
+var bil1, bil2, penjumlahan, pengurangan, perkalian, pembagian : real;
+
+begin
+write('Masukkan Bilangan Pertama : '); read(bil1);
+write('Masukkan Bilangan Kedua   : '); read(bil2);
+writeln();
+penjumlahan := bil1 + bil2;
+writeln('Hasil Dari Penjumlahannya Adalah = ',penjumlahan:0:2);
+pengurangan := bil1 - bil2;
+writeln('Hasil Dari Pengurangannya Adalah = ',pengurangan:0:2);
+perkalian := bil1 * bil2;
+writeln('Hasil Dari Perkaliannya Adalah   = ',perkalian:0:2);
+pembagian := bil1 / bil2;
+writeln('Hasil Dari Pembagiannya Adalah   = ',pembagian:0:2);
+readkey;
+end.
