@@ -1,0 +1,21 @@
+uses crt;
+var 
+i:integer;
+begin
+i:=2345;
+writeln('Bilangan : ',i);
+write('Dibalik  : ');
+while(i<>0)do
+begin
+write(i mod 10);
+i:=i div 10;
+end;
+end.
+
+script diatas tidak memakai readkey untuk menahan jendela program yang muncul, seperti biasa saya menggunakan readkey
+diatas end., berikut tampilan script program yang telah di Execute:
+
+Bilangan : 2345
+Dibalik  : 5432
+
+program diatas menampilkan hasil modulasi (sisa pembagian) 2345 dengan 10, lalu hasil tersebut di bagi 10.
