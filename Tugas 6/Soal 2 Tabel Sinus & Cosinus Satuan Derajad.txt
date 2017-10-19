@@ -1,0 +1,18 @@
+uses crt;
+var
+x,sinx,cosx:real;
+begin
+writeln('*** TABEL SINUS DAN COSINUS DALAM SATUAN DERAJAD ***');
+writeln('Programmer : Bahtiar');
+writeln('  x    sin(x)    cos(x)');
+writeln('-----------------------');
+x:=0;
+while(x<=360) do
+     begin
+     sinx:=sin(x/57.2958);
+     cosx:=cos(x/57.2958);
+     writeln(x:3:0,sinx:10:2,cosx:10:2);
+     x:=x+30;
+     end;
+readkey;
+end.

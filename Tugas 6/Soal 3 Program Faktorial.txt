@@ -1,0 +1,17 @@
+program SoalTiga_Faktorial;
+uses crt;
+var
+i,bil,fak:integer;
+begin
+writeln('Program Bilangan Faktorial');
+writeln('Programmer : Bahtiar');
+writeln('==========================');
+write('Masukan Bilangan = ');readln(bil);
+fak:=1;
+for i:=1 to bil do
+    begin
+    fak:=fak*i;
+    end;
+write(bil,'! = ',fak);
+readkey;
+end.
