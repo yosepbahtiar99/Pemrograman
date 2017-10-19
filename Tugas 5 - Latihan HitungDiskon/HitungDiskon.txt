@@ -1,0 +1,36 @@
+program HitungDiskon;
+uses crt;
+var
+HargaNormal,BesarDiskon,HargaAkhir:integer;
+CekDiskon,CekMember:boolean;
+Member:shortstring;
+
+begin
+  writeln('Program Menghitung Diskon');
+  writeln('Programmer : Bahtiar');
+  writeln;
+  write('Masukan Harga Normal Baju = Rp. '); readln(HargaNormal);
+  if (HargaNormal>50000) then
+  CekDiskon := true
+  else
+      Cekdiskon := false;
+
+  write('Apakah Anda Mempunyai Kartu Member (Ya/Tidak)? : '); readln(Member);
+  if (Member = 'Ya') then
+  CekMember := true
+  else
+      CekMember := false;
+
+  if (CekDiskon and CekMember) then
+  BesarDiskon := HargaNormal * 25 div 100
+  else
+      if (CekDiskon and not (CekMember)) then
+      BesarDiskon := HargaNormal * 20 div 100
+      else
+          if (not(CekDiskon) and not (CekMember)) then
+          BesarDiskon := 0;
+
+HargaAkhir := HargaNormal - BesarDiskon;
+writeln('Harga Setelah Diskon = Rp. ',HargaAkhir);
+  readkey;
+end.
