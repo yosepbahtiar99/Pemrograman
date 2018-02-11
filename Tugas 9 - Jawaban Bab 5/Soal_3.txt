@@ -1,0 +1,30 @@
+program Procedure_Mengganti_Kalimat;
+uses crt;
+var
+i: integer;
+kalimat: string;
+
+procedure urut;
+begin
+if (kalimat <> '') and (Length(kalimat) > 0) then
+   begin
+      for i := 1 to length(kalimat) do (*Memberikan nilai panjang dari suatu string
+					(jumlah karakterdalam string).
+					 Statement ini tidak jalan di Bloodshet:Dev-Pascal (PC/.exe),
+					 sedangkan di Pascal N-IDE jalan (Android/.apk)
+					*)
+         begin
+         if kalimat[i] <> ' ' then
+            begin
+               kalimat[i] := kalimat[i] + 1;
+            end;
+         end;
+   end;
+write(kalimat);
+end;
+
+Begin
+write('Masukan Kalimat :');readln(kalimat);
+urut;
+readkey;
+End.
