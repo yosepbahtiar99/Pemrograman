@@ -1,0 +1,29 @@
+uses crt;
+function fakt(n:longint):longint;
+     begin
+     if (n=0) then
+     fakt:=1
+          else
+          begin
+          n:=n*fakt(n-1);
+          fakt:=n;
+          end;
+     end;
+
+var
+n,k,nk:longint;
+
+begin
+writeln('Rumus Kombinasi : n! / k! + ( n - k )!');
+writeln('Catatan : Objek bisa berupa suatu bidang/pekerjaan,');
+writeln('          sedangkan subjek bisa berupa orang');
+write('Masukan n sebagai objek  : ');readln(n);
+write('Masukan k sebagai subjek : ');readln(k);
+writeln;
+writeln('Faktorial n     : ',n,'! = ',fakt(n));
+writeln('Faktorial k     : ',k,'! = ',fakt(k));
+nk:=n-k;
+writeln('Faktorial n - k : ',nk,'! = ',fakt(nk));
+writeln('Kombinasi subjek pada objek : ',fakt(n) div (fakt(k)+fakt(nk)));
+readkey;
+end.
