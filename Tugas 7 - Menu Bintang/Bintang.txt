@@ -1,0 +1,83 @@
+program Bintang;
+uses crt;
+var
+pilih,n,m,i,j: integer;
+
+begin
+repeat
+writeln('-------------------------------------');
+writeln('|               Menu                |');
+writeln('-------------------------------------');
+writeln('| 1. Segitiga Bintang Rata Kanan    |');
+writeln('| 2. Segitiga Bintang Rata Kiri     |');
+writeln('| 3. Segitiga Bintang Rata Tengah   |');
+writeln('| 4. Segitiga Pascal                |');
+writeln('-------------------------------------');
+writeln('| 0. Keluar Program                 |');
+writeln('-------------------------------------');
+write('Pilih Nomor : ');readln(pilih);
+
+case pilih of
+1 : begin
+write('Jumlah Baris : ');readln(n);
+writeln('Segitiga Bintang :');
+writeln;
+for i:=n downto 1 do
+   begin
+   for j:=i-1 downto 1 do
+      write(' ');
+   for m:=n-(i-1) downto 1 do
+      write('*');
+   writeln;
+   end;
+end;
+
+2 : begin
+write('Jumlah Baris : ');readln(n);
+writeln('Segitiga Bintang :');
+writeln;
+for i:=1 to n do
+   begin
+   for j:=1 to i do
+      write('*');
+      writeln;
+   end;
+end;
+
+3 : begin
+write('Jumlah Baris : ');readln(n);
+writeln('Segitiga Bintang :');
+writeln;
+for i:=1 to n do
+   begin
+   for j:=1 to n-i do
+      write(' ');
+   for j:=1 to i do
+      write('* ');
+   writeln();
+   end;
+end;
+
+4 : begin // maaf pak, saya nggak kecapai logikanya di bagian ini :(
+write('Tinggi Segitiga Pascal : ');readln(n);
+writeln('Segitiga Pascal :');
+writeln;
+for i:=1 to n do
+   begin
+   for j:=1 to n-i do
+      begin
+      write(' ');
+      end;
+   for j:=1 to i do
+      begin
+      write(i,' ');
+      end;
+   writeln();
+   end;
+end;
+
+end;
+readkey;
+clrscr;
+until pilih=0;
+end.
