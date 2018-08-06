@@ -1,0 +1,239 @@
+program Applikasi_Transkrip_Nilai;
+{
+Identitas Pembuat Program:
+Nama:                NIM:
+Yosep Bahtiar       [301170024]
+Fuji Endang Pratiwi [301170001]
+
+FTI - UNIBBA
+
+Edisi Revisi ke 11
+}
+uses crt;
+const
+  jml_data = 10;
+type
+  tmk = record
+           kode           : string;
+           matkul         : string;
+           absensi_persen : real;
+           tugas_persen   : real;
+           kuis_persen    : real;
+           uts_persen     : real;
+           uas_persen     : real;
+         end;
+
+  tkar = record
+           nm      : string;
+           absensi : integer;
+           tugas   : integer;
+           kuis    : integer;
+           UTS     : integer;
+           UAS     : integer;
+           total   : real;
+           code    : string;
+           matkul  : string;
+           absp    : real;
+           tgsp    : real;
+           kuisp   : real;
+           utsp    : real;
+           uasp    : real;
+           hf      : char;
+           am      : real;
+           ket     : string;
+         end;
+
+  tarr_mk  = array [1..jml_data] of tmk;
+  tarr_kar = array [1..jml_data] of tkar;
+
+  function menu:char;
+  begin
+    clrscr;
+    writeln('=================================');
+    writeln('|-- Applikasi Transkrip Nilai --|');
+    writeln('=================================');
+    writeln('| 1. Input Data Mata Kuliah     |');
+    writeln('| 2. Input Data Mahasiswa       |');
+    writeln('| 3. Output Hasil               |');
+    writeln('=================================');
+    writeln('| 0. Keluar Aplikasi            |');
+    writeln('=================================');
+    write('Pilih menu : '); readln(menu);
+  end;
+
+  procedure input_matkul(idx:integer;var data2:tarr_mk);
+  var
+     total_persen : real;
+  begin
+     writeln('| Data Mata Kuliah ke-',idx);
+     write('| Kode Mata Kuliah   : ');readln(data2[idx].kode);
+     write('| Nama Mata Kuliah   : ');readln(data2[idx].matkul);writeln;
+     repeat
+     writeln('| Masukan Persentase Kalkulasi Nilai');
+     writeln('| note : usahakan untuk memberikan total persentase 100%');
+     write('| Absensi (persen) : ');readln(data2[idx].absensi_persen);
+     write('| Tugas   (persen) : ');readln(data2[idx].tugas_persen);
+     write('| Kuis    (persen) : ');readln(data2[idx].kuis_persen);
+     write('| UTS     (persen) : ');readln(data2[idx].uts_persen);
+     write('| UAS     (persen) : ');readln(data2[idx].uas_persen);
+     total_persen:=data2[idx].absensi_persen + data2[idx].tugas_persen + data2[idx].kuis_persen + data2[idx].uts_persen + data2[idx].uas_persen;
+     writeln('| Total Persentase : ',total_persen:0:0);
+     if total_persen <> 100 then
+        begin
+        write('| Anda tidak memasukan jumlah persentase 100%');readln;
+        clrscr;
+        end
+     else
+        write('| Anda memasukan jumlah persentase 100%');writeln;
+     until(total_persen=100);
+  end;
+
+  procedure input_data(idx:integer;var data:tarr_kar;data2:tarr_mk);
+  var
+     kode : string;
+     i : integer;
+  begin
+     write('| Nama Mahasiswa   : ');readln(data[idx].nm);
+     write('| Kode Mata Kuliah : ');readln(kode);
+     for i:=1 to jml_data do //mencari data di record matkul. dengan memasukan nomor array menggunakan looping maka akan mencari di array 1 sampai konstanta jml_data yaitu 10
+        begin
+        if kode = data2[i].kode then
+           begin
+           {menyamakan variabel supaya satu array}
+           data[idx].code    := data2[i].kode;
+           data[idx].matkul  := data2[i].matkul;
+           data[idx].absp    := data2[i].absensi_persen;
+           data[idx].tgsp    := data2[i].tugas_persen;
+           data[idx].kuisp   := data2[i].kuis_persen;
+           data[idx].utsp    := data2[i].uts_persen;
+           data[idx].uasp    := data2[i].uas_persen;
+           writeln('| Nama Mata Kuliah : ',data[idx].matkul);
+           write('| Nilai Absensi    : ');readln(data[idx].absensi);
+           write('| Nilai Tugas      : ');readln(data[idx].tugas);
+           write('| Nilai Kuis       : ');readln(data[idx].kuis);
+           write('| Nilai UTS        : ');readln(data[idx].uts);
+           write('| Nilai UAS        : ');readln(data[idx].uas);
+           end
+        else
+           writeln('| Slot di array nomor ',i,' Tidak ada');
+        end;
+  end;
+
+  procedure proses_data(var data:tkar);
+  begin
+	data.total:= ((data.absensi*(data.absp / 100))+(data.tugas*(data.tgsp / 100))+(data.kuis*(data.kuisp / 100))+(data.uts*(data.utsp / 100))+(data.uas*(data.uasp / 100)));
+	if (data.total >= 90) then
+       begin
+	   data.hf := 'A';
+           data.am := 4.0;
+           data.ket := 'Lulus';
+       end
+	else
+	if (data.total >= 70) then
+       begin
+	   data.hf := 'B';
+           data.am := 3.5;
+           data.ket := 'Lulus';
+       end
+	else
+	if (data.total >= 50) then
+       begin
+	   data.hf := 'C';
+           data.am := 3.0;
+           data.ket := 'Lulus';
+       end
+	else
+	if (data.total >= 30) then
+       begin
+	   data.hf := 'D';
+           data.am := 2.5;
+           data.ket := 'Tidak Lulus';
+       end
+	else
+       begin
+	   data.hf := 'E';
+           data.am := 2.0;
+           data.ket := 'Tidak Lulus';
+       end;
+  end;
+
+  procedure output_data(jml:integer;data:tarr_kar);
+  var
+    i:integer;
+  begin
+    if jml=0 then
+    begin
+       writeln('Belum Ada Data !');
+    end
+    else
+         for i:=1 to jml do
+         begin
+           writeln(' Data ke-',i);
+           writeln('Nama Mahasiswa    : ',data[i].nm);
+           writeln('===============================');
+           writeln('| Kode Mata Kuliah  : ',data[i].code);
+           writeln('| Nama Mata Kuliah  : ',data[i].matkul);
+           writeln('| Nilai Absensi     : ',data[i].absensi);
+           writeln('| Nilai Tugas       : ',data[i].tugas);
+           writeln('| Nilai Kuis        : ',data[i].kuis);
+           writeln('| Nilai UTS         : ',data[i].uts);
+           writeln('| Nilai UAS         : ',data[i].uas);
+           writeln('| Total Nilai       : ',data[i].total:0:1);
+           writeln('| Huruf Mutu        : ',data[i].hf);
+           writeln('| Angka Mutu        : ',data[i].am:0:1);
+           writeln('| Keterangan        : ',data[i].ket);
+           writeln('===============================');
+         end;
+  end;
+
+var
+  no_menu,terus : char;
+  jml_kar       : integer;
+  jml_mk        : integer;
+  data_kar      : tarr_kar;
+  data_mk       : tarr_mk;
+
+begin
+  jml_kar:=0;
+  jml_mk:=0;
+  repeat
+    no_menu:=menu;
+    case no_menu of
+     '1' : begin
+              clrscr;
+              repeat;
+              input_matkul(jml_mk+1,data_mk);
+              jml_mk:=jml_mk+1;
+              writeln;
+              write('Input Data Lagi (y/n) : ');readln(terus);
+              writeln;
+              until(terus='n');
+           end;
+
+     '2' : begin
+            clrscr;
+            if data_mk[jml_mk].kode = '' then
+              begin
+              writeln('Belum Ada Data !');readln;
+              end
+            else
+              begin
+              repeat
+              input_data(jml_kar+1,data_kar,data_mk);
+              proses_data(data_kar[jml_kar+1]);
+              jml_kar:=jml_kar+1;
+              writeln;
+              write('Input Data Lagi (y/n) : ');readln(terus);
+              writeln;
+              until(terus='n');
+              end;
+           end;
+
+     '3' :  begin
+              clrscr;
+              output_data(jml_kar,data_kar);
+              readln;
+            end;
+    end;
+  until(no_menu='0');
+end.
